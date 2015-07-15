@@ -20,8 +20,25 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 }
             }
         })
-        .state('itemView', {
-            url: '/itemView',
+        .state('department', {
+            url: '/:department',
+            views: {
+                navigation: {
+                    templateUrl: 'headerPartial.html',
+                    controller: 'HeaderController as HeaderCtrl'
+                },
+                page:{
+                    templateUrl: 'partials/departmentPartial.html',
+                    controller: 'DepartmentController as DepartmentCtrl'
+                },
+                footer:{
+                    templateUrl: 'footerPartial.html',
+                    controller: 'FooterController as FooterCtrl'
+                }
+            }
+        })
+        .state('item', {
+            url: '/:department/:item',
             views: {
                 navigation: {
                     templateUrl: 'headerPartial.html',

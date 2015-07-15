@@ -1,13 +1,31 @@
 <div class="dashboard-content">
-    <div style="height: 305px">
+    <div class="sac-dashboard-carosuel">
         <carousel interval="myInterval">
             <slide ng-repeat="slide in slides" active="slide.active">
-                <img ng-src="{{slide.image}}" style="margin:auto;">
-                <div class="carousel-caption">
-                    <h4>{{slide.heading}}</h4>
-                    <p>{{slide.text}}</p>
-                </div>
+                <a href="#">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>{{slide.heading}}</h4>
+                        <p>{{slide.text}}</p>
+                    </div>
+                </a>
             </slide>
         </carousel>
+    </div>
+    <div class="container" data-ng-repeat="department in departments">
+        <h2 ><a ui-sref="department({department: department.id})" data-ng-bind="department.name"></a></h2>
+        <div class="row">
+            <div class="col-lg-4" data-ng-repeat="item in department.items | limitTo:3">
+                <h4><a ui-sref="item({department: department.id, item:item.id})" data-ng-bind="item.name"></a></h4>
+                <div class="col-xs-6 col-md-3">
+                    <a ui-sref="item({department: department.id, item:item.id})" class="thumbnail">
+                        <img src="{{item.imageUrl}}" alt="{{item.id}}">
+                    </a>
+                </div>
+                <div>
+                    <p>Price : {{item.price}}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
