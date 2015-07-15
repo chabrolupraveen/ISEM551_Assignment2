@@ -3,6 +3,40 @@
  */
 app.controller('SACController',['$scope',function($scope){
 
+    $scope.departments = [
+        {
+            id:"electronics",
+            name:"Electronics",
+            items:[
+                {
+                    id:"carCharger",
+                    imageUrl:"images/electronics/carCharger.jpg",
+                    description:"All Purpose Car Charger",
+                    name:"Car Charger"
+                },
+                {
+                    id:"",
+                    imageUrl:"",
+                    description:"",
+                    name:""
+                },
+                {
+                    id:"",
+                    imageUrl:"",
+                    description:"",
+                    name:""
+                },
+                {
+                    id:"",
+                    imageUrl:"",
+                    description:"",
+                    name:""
+                }
+            ]
+        }
+
+    ]
+
 }]);
 
 app.controller('HeaderController',['$scope',function($scope){
@@ -15,19 +49,6 @@ app.controller('FooterController',['$scope',function($scope){
 
 app.controller('DashboardController',['$scope',function($scope){
     $scope.myInterval = 5000;
-    var slides = $scope.slides = [];
-    $scope.addSlide = function() {
-        var newWidth = 600 + slides.length + 1;
-        slides.push({
-            image: 'http://placekitten.com/' + newWidth + '/300',
-            text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
-                ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
-        });
-    };
-    for (var i=0; i<4; i++) {
-        $scope.addSlide();
-    }
-
     $scope.slides = [
         {
             image: 'images/electronics.jpg',
@@ -55,6 +76,8 @@ app.controller('DashboardController',['$scope',function($scope){
             text: 'Shop your needed electronics from our E-SAC website'
         }
     ];
+
+
 }]);
 
 app.controller('ItemViewController',['$scope',function($scope){
